@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVITY 1</title>
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .myDiv {
+        border: 5px outset #d46419;
+        background-color: rgb(43, 179, 224);    
+        text-align: center;
+        margin: auto;
+        width: 35%;
+        padding: 10px;
+        border-radius: 50px;
+        position: relative;
+        display: block;
+        }
+
+        body {
+            background-color: #0B0C10;
+        }
+
+        p {
+            color: blue;
+            font-size: 30px;
+        }
+        </style>
+</head>
+<body ng-app="">
+    <div class="myDiv">
+        Login Account<input type="checkbox" ng-model="myVar" ng-init="myVar = false"><br>
+        Create Account<input type="checkbox" ng-model="myVar2" ng-init="myVar2 = false">
+
+    <!-- ng-readonly -->
+    <div ng-if="myVar">
+        <p>Login</p>
+        <label>Username</label>
+        <input type="text" ng-disabled="checked" value="Aki Terada"><br>
+        <input type="checkbox" ng-model="checked">Readonly
+    </div>
+    <div ng-if="myVar">
+        <label>Password</label>
+        <input ng-hide="toShow" type="password" id="pass"><br>
+        <input type="checkbox" onclick="myFunction()">Show Password<br>
+        <input type="button" ng-click="toShow=false" value="Login">
+    </div>
+
+
+    <!-- ng-disabled -->
+    <div ng-if="myVar2">
+        <br>
+        <p>Create Account</p>
+        <label>Username</label>
+        <input type="text" ng-disabled="checked1"><br>
+        <input type="checkbox" ng-model="checked1"> disabled
+    </div>
+    <div ng-if="myVar2">
+        <label>Email</label>
+        <input type="text">
+    </div>
+    <div ng-if="myVar2">
+        <label>Password</label>
+        <input type="password" id="pass"><br>
+        <input type="checkbox" onclick="myFunction()">Show Password
+    </div>
+    <div ng-if="myVar2">
+        <label>Confirm Password</label>
+        <input type="password" id="pass"><br>
+        <input type="checkbox" onclick="myFunction()">Show Password<br>
+        <input type="button" ng-click="toShow=false" value="Register">
+    </div>
+</div>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("pass");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>
+</body>
+</html>
